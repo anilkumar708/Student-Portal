@@ -1,0 +1,62 @@
+/* previous css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+Table {
+  max-width: 80%;
+  margin: 0 auto;
+  background-color: #d9f9ff00;
+
+  border: 1px solid rgba(224, 224, 224, 1);
+}
+
+.table-r {
+  background-color: rgb(179, 179, 179);
+}
+
+.table-h {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.user {
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.login {
+  max-width: 400px;
+  margin: 150px auto;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px #566;
+  text-align: center;
+  padding: 10px;
+}
+
+input {
+  font-size: 16px;
+  margin-bottom: 15px;
+  padding: 7px;
+  border: 1px solid black;
+  border-radius: 3px;
+  width: 70%;
+}
+
+Form {
+  max-width: 100%;
+}
+h1 {
+  text-align: center;
+  border: 1px solid #566;
+  color: rgb(255, 94, 0);
+}
+
+.home {
+  text-align: center;
+}

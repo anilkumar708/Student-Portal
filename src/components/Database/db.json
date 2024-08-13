@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "name": "Ashwini",
+      "phone": "7896578576",
+      "email": "achu@gmail.com",
+      "location": "Bangalore",
+      "gender": "female",
+      "status": "active",
+      "id": 1
+    }
+  ]
+}
