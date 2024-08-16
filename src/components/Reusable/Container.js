@@ -30,7 +30,6 @@ class Container extends React.Component {
       >
         <img src={img} alt="name" width={100} />
         <ListItem
-          button
           onClick={() => {
             navigationToPage("/home");
           }}
@@ -38,7 +37,6 @@ class Container extends React.Component {
           <ListItemText primary={"Home"} />
         </ListItem>
         <ListItem
-          button
           onClick={() => {
             navigationToPage("/user");
           }}
@@ -47,12 +45,18 @@ class Container extends React.Component {
         </ListItem>
 
         <ListItem
-          button
           onClick={() => {
             navigationToPage("/role");
           }}
         >
           <ListItemText primary={"Role"} />
+        </ListItem>
+        <ListItem
+          onClick={() => {
+            navigationToPage("/blogs");
+          }}
+        >
+          <ListItemText primary={"Blogs"} />
         </ListItem>
       </Drawer>
     );

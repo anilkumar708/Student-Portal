@@ -13,6 +13,7 @@ import Container from "./components/Reusable/Container.js";
 import Adduser from "./components/User/Adduser.js";
 import Edituser from "./components/User/Edituser.js";
 import CallBack from "./components/DexGt/CallBack.jsx";
+import BlogPost from "./components/Blogs/BlogPost.tsx";
 
 function App() {
   return (
@@ -66,6 +67,14 @@ function App() {
           element={
             <Container>
               <CallBack />
+            </Container>
+          }
+        />
+        <Route
+          path="/blogs"
+          element={
+            <Container>
+              <BlogPost />
             </Container>
           }
         />

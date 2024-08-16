@@ -1,31 +1,56 @@
+import styled from "@emotion/styled";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 const Role = () => {
-  const [number, setNumber] = useState("1");
-  const [data, setData] = useState("");
+  const [number, setNumber] = useState("0");
+  const [data, setData] = useState<any[]>([]);
   const numberChange = (e) => {
     setNumber(e.target.value);
   };
 
-  useEffect(() => {
-    async function fetchUsers() {
+  const fetchUsers = async () => {
+    try {
       const res = await fetch("https://jsonplaceholder.typicode.com/posts");
       const user = await res.json();
       setData(user);
+    } catch (error) {
+      console.log("Error while fetching the data", error);
     }
+  };
+
+  useEffect(() => {
     fetchUsers();
   }, []);
 
   return (
-    <div>
+    <Main>
       <h1>WELCOME TO ROLES</h1>
       <form>
         <label>Number</label>
-        <input onChange={numberChange} value={number} />
+        <input onChange={numberChange} value={number} type="Number" />
       </form>
       <p>Number :{number}</p>
-    </div>
+      <Details>
+        {data.map((item) => (
+          <List key={item.id}>{item.title}</List>
+        ))}
+      </Details>
+    </Main>
   );
 };
+const Main = styled.section`
+  margin: auto;
+  width: 80%;
+`;
+
+const Details = styled.ul`
+  display: flex;
+  overflow: auto;
+`;
+
+const List = styled.li`
+  list-style: none;
+`;
 
 export default Role;
