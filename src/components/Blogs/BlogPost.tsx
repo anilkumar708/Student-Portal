@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { Label } from "@mui/icons-material";
 import { FormControl } from "@mui/material";
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 interface Post {
   id: number;
@@ -11,10 +11,15 @@ interface Post {
 }
 const BlogPost = () => {
   const [post, setPost] = useState<Post[]>([]);
-  const [newPost, setNewPost] = useState<Post>({ title: "", body: "" });
+  const [newPost, setNewPost] = useState({ title: "", body: "" });
+
+  useEffect(() => {
+    fetchPost();
+  }, []);
 
   const createPost = (e) => {
     e.preventDefault();
+    // sessionStorage.setItem("test", JSON.stringify(post));
     axios
       .post("https://jsonplaceholder.typicode.com/posts", newPost)
       .then((res) => {
@@ -26,6 +31,24 @@ const BlogPost = () => {
       });
   };
 
+  const onChnageInput = (e) => {
+    const { name, value } = e.target;
+    setNewPost((newPost) => ({ ...newPost, [name]: value }));
+  };
+  console.log(newPost);
+
+  const fetchPost = () => {
+    axios.get("https://jsonplaceholder.typicode.com/posts").then((blogs) => {
+      console.log(blogs, "blogs");
+      setPost(blogs.data);
+    });
+    // const data = sessionStorage.getItem("test");
+    // const parsedData = data ? JSON.stringify(data) : {}; // Provide a fallback empty object
+    // setPost(parsedData);
+  };
+
+  console.log(post, "post");
+
   return (
     <Main>
       <Title>Learning BlogPost With API</Title>
@@ -34,9 +57,10 @@ const BlogPost = () => {
           Title:
           <input
             type="text"
+            name={"title"}
             placeholder="Title"
             value={newPost.title}
-            onChange={(e) => setNewPost({ ...newPost, title: e.target.value })}
+            onChange={onChnageInput}
           />
         </label>
         <br />
@@ -44,9 +68,10 @@ const BlogPost = () => {
           Body:
           <input
             type="text"
+            name={"body"}
             placeholder="Body"
             value={newPost.body}
-            onChange={(e) => setNewPost({ ...newPost, body: e.target.value })}
+            onChange={onChnageInput}
           />
         </label>
         <br />
@@ -55,7 +80,7 @@ const BlogPost = () => {
       {post.map((blog) => (
         <li key={blog.id}>
           {blog.title}
-          {blog.body}
+          {/* {blog.body} */}
         </li>
       ))}
     </Main>

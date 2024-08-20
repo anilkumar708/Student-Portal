@@ -4,6 +4,7 @@
   margin: auto;
   justify-content: center;
   padding: 10px;
+  height: 220px;
   background-color: rgb(255, 232, 129);
 }
 .products1 > img {
