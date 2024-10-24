@@ -14,6 +14,7 @@ import Adduser from "./components/User/Adduser.js";
 import Edituser from "./components/User/Edituser.js";
 import CallBack from "./components/DexGt/CallBack.jsx";
 import BlogPost from "./components/Blogs/BlogPost.tsx";
+import NodeStore from "./components/NodeWithStore/NodeStore.jsx";
 
 function App() {
   return (
@@ -75,6 +76,14 @@ function App() {
           element={
             <Container>
               <BlogPost />
+            </Container>
+          }
+        />
+        <Route
+          path="/nodedata"
+          element={
+            <Container>
+              <NodeStore />
             </Container>
           }
         />

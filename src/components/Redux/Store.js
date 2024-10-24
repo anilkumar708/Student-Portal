@@ -1,14 +1,8 @@
-import { createStore, applyMiddleware } from "redux";
-import logger from "redux-logger";
-import reduxThunk from "redux-thunk";
-import rootReducer from "./Root-Reducer";
+import { configureStore } from "@reduxjs/toolkit";
+import nodeData from "./dataSlice";
 
-const middlewares = [reduxThunk];
-
-if (process.env.NODE_ENV === "development") {
-  middlewares.push(logger);
-}
-
-const store = createStore(rootReducer, applyMiddleware(...middlewares));
+const store = configureStore({
+  reducer: { nodeData },
+});
 
 export default store;

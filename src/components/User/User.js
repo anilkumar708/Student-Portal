@@ -9,16 +9,24 @@ import {
 } from "@mui/material";
 
 import { getUsers, deleteUsers } from "../Service/api";
+import { getNode } from "../Service/node";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const User = () => {
   const [users, setUsers] = useState([]);
+  const [node, setNode] = useState([]);
 
   const getUserDetails = async () => {
     let response = await getUsers();
     console.log(response);
     setUsers(response.data);
+  };
+
+  const getNodeDetails = async () => {
+    let response = await getNode();
+    console.log(response.data);
+    setNode(response.data);
   };
 
   const deleteUsersData = async (id) => {
@@ -28,6 +36,7 @@ const User = () => {
 
   useEffect(() => {
     getUserDetails();
+    getNodeDetails();
   }, []);
 
   return (

@@ -6,6 +6,7 @@ import { useState } from "react";
 import CallBack from "./DexGt/CallBack.jsx";
 import Chat from "./DexGt/Chat";
 import Message from "./DexGt/Message";
+import Board from "./TicToc/Button.tsx";
 
 const DUMMY_EXPENSES = [
   {
@@ -53,6 +54,7 @@ const Home = () => {
       <Chat />
       <Expenses items={expenses} />
       <Pagination />
+      <Board />
     </div>
   );
 };

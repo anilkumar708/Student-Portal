@@ -58,6 +58,13 @@ class Container extends React.Component {
         >
           <ListItemText primary={"Blogs"} />
         </ListItem>
+        <ListItem
+          onClick={() => {
+            navigationToPage("/nodedata");
+          }}
+        >
+          <ListItemText primary={"NodeData"} />
+        </ListItem>
       </Drawer>
     );
   };
