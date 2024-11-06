@@ -39,6 +39,38 @@ const User = () => {
     getNodeDetails();
   }, []);
 
+  const student = {
+    name: "anil",
+    age: "28",
+    address: "chennai",
+  };
+  //spread operator
+  let adjust = { ...student, name: "raju" };
+  // rest operator
+  const { age, ...rest } = student;
+  console.log(rest);
+  console.log(adjust);
+
+  //closure function
+  const curry = (a) => {
+    return (b) => {
+      return a * b;
+    };
+  };
+  console.log(curry(3)(4));
+
+  //componentDidMount
+  const [user, setUser] = useState(student);
+  useEffect(() => {}, []);
+
+  //componentDidUpdate
+  useEffect(() => {}, [user]);
+
+  //componentUnmount
+  useEffect(() => {
+    return () => {};
+  });
+
   return (
     <div>
       <div className="user">
